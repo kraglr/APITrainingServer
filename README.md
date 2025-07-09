@@ -21,7 +21,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone  https://github.com/kraglr/APITrainingServer.git
    cd react-training-server
    ```
 
