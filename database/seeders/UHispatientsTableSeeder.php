@@ -2,16 +2,22 @@
 
 namespace Database\Seeders;
 
+use DateTime;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 class UHispatientsTableSeeder extends Seeder
 {
     public function run(): void
     {
-        $patientCount = 1;
+        $start_date = '2015-12-31 00:00:00';
+        $end_date = '2010-01-01 00:00:00';
+        $min = strtotime($start_date);
+        $max = strtotime($end_date);
+
         for ($i = 1; $i <= 100; $i++) {
+            $val = rand($min, $max);
             DB::table('u_hispatients')->insert([
                 'COMPANY' => 'HIS',
                 'BRANCH' => 'HO',
@@ -21,7 +27,7 @@ class UHispatientsTableSeeder extends Seeder
                 'U_FIRSTNAME' => 'John',
                 'U_MIDDLENAME' => 'Allen',
                 'U_GENDER' => 'M',
-                'U_BIRTHDATE' => '1990-01-01',
+                'U_BIRTHDATE' => new \DateTime(date('Y-m-d H:i:s', $val)),
                 'U_ADDRESS' => '123 Main St',
                 'U_CITY' => 'Cityville',
                 'U_PROVINCE' => 'ProvinceX',
