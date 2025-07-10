@@ -19,6 +19,6 @@ class UHispatient extends Model
         'U_BIRTHDATE',
         'U_GENDER',
         'U_EXTNAME',
-        'U_VISITNO',
+        'U_VISITCOUNT',
     ];
 }

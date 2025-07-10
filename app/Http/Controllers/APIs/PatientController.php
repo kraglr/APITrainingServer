@@ -40,7 +40,7 @@ class PatientController extends Controller
             'U_BIRTHDATE',
             'U_GENDER',
             'U_EXTNAME',
-            'U_VISITNO',
+            'U_VISITCOUNT',
         )
             ->when($request->search !== null, function ($query) use ($searchCols, $searchString) {
                 foreach ($searchCols as $key => $col) {
@@ -83,7 +83,7 @@ class PatientController extends Controller
                 'U_BIRTHDATE',
                 'U_GENDER',
                 'U_EXTNAME',
-                'U_VISITNO',
+                'U_VISITCOUNT',
             ])->where('CODE', $request->mrn)->first();
 
             return response()->json([
