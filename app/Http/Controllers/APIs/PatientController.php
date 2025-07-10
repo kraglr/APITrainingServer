@@ -84,10 +84,49 @@ class PatientController extends Controller
                 'U_GENDER',
                 'U_EXTNAME',
                 'U_VISITCOUNT',
+                'U_OCCUPATION',
+                'U_NATIONALITY',
+                'U_RELIGION'
             ])->where('CODE', $request->mrn)->first();
 
             return response()->json([
                 'infoPatient' => $infoPatient
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+
+    public function savePatientInfo(Request $request)
+    {
+        # code...
+        // dd($request->all());
+
+
+        try {
+            $data = [];
+            switch ($request->action) {
+                case 'view':
+                    // $id =    DB::table('u_hispatients')->select('id')->where('CODE', $request->data['CODE'])->first();
+                    // $CODE = '2025-000003';
+
+                    $data = $request->data;
+                    // $data['CODE'] = $CODE;
+                    // UHispatient::create($data);
+                    DB::table('u_hispatients')->where('CODE', $request->data['CODE'])->update($request->data);
+                    // dd($id);
+                    throw new \Exception('saved');
+                    break;
+
+                default:
+                    # code...
+                    break;
+            }
+            // UHispatient::
+
+            return response()->json([
+                'success' => true
             ]);
         } catch (\Throwable $th) {
             throw $th;
