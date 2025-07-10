@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get("/patients/get-patient-list", [PatientController::class, 'getPatientList']);
+Route::get("/patients/get-patient-information", [PatientController::class, 'getPatientInformation']);
